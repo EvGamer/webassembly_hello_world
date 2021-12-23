@@ -1,5 +1,7 @@
-#include <stdio.h>
+#include <iostream>
 
 int main(int argc, char ** argv) {
-  printf("Hello world\n");
+  using namespace std; 
+  cout << "Hello world" << '\n';
+  cout << "Did you miss me" << '\n';
 }

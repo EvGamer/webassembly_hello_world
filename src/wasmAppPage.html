@@ -2,6 +2,23 @@
 <html>
 	<head></head>
 	<body>
+		<div id="console"></div>
+		<script>
+
+			var consoleElement = document.getElementById('console');
+			function createConsoleLine(text) {
+				var div = document.createElement('div');
+				div.innerText = text;
+				return div;
+			}
+			var Module = {
+				print: (text) => {
+					for (var line of text.split('\n')) {
+						consoleElement.appendChild(createConsoleLine(line));
+					}
+				}
+			};
+		</script>
 		<script>
 			!function(_window, _document) {
 				console.log("Loading client...");
