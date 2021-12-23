@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<script>
+			!function(_window, _document) {
+				console.log("Loading client...");
+
+				var wasmFilePath = "wasm_hello_world.js";
+				console.log("Script set to " + wasmFilePath);
+				var wasmScriptElement = _document.createElement("script");
+				wasmScriptElement.async = !0;
+				wasmScriptElement.type = "text/javascript";
+				wasmScriptElement.src = wasmFilePath;
+				wasmScriptElement.onerror = function(t) {
+					console.error("Script Error"), console.error(t), setTimeout(function() {
+						_window.location.reload(!0)
+					}, 3e3)
+				};
+				var thisScriptElement = _document.getElementsByTagName("script")[0];
+				thisScriptElement.parentNode.insertBefore(wasmScriptElement, thisScriptElement)
+			}(window, document);
+		</script>
+	</body>
+</html>
