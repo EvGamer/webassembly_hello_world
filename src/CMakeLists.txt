@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(wasmHello_world VERSION 0.0.0)
+project(wasm_hello_world VERSION 0.0.0)
 
 ## Add project source files
 file(
@@ -24,4 +24,5 @@ if (EMSCRIPTEN)
 		${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/index.html
 		COPYONLY
 	)
+	set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-s WASM=1 -s EXPORTED_FUNCTIONS='[_main]'")
 endif()
